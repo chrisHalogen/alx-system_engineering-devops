@@ -1,3 +1,3 @@
 # Processes and Signals
 
-This directory is for processes and signals
+This directory is for processes, and signals
