@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Automating my Tasks using Puppet
+# Using Puppet to automate the process
 
 file { '/etc/ssh/ssh_config':
 	ensure  => present,
