@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Transfers files between Client & Server
+# Line 4 - Checks for the number of variables
+if [ $# -lt 4 ]
+then
+  echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+  scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3@$2":~
+fi
