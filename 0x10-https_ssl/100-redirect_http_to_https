@@ -1,0 +1,16 @@
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend tech-frontend
+    bind *:443 ssl crt /etc/letsencrypt/live/www.christianchi.tech/www.christianchi.tech.pem
+    http-request redirect scheme https unless { ssl_fc }
+    default_backend tech-backend
+
+backend tech-backend
+    balance roundrobin
+    server  92805-web-01 34.229.186.183:80 check
+    server  92805-web-02 54.144.240.30:80 check
