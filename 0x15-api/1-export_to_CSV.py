@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """export data to csv"""
 import csv
-import sys
 import requests
+import sys
 
 if __name__ == "__main__":
     id = sys.argv[1]
