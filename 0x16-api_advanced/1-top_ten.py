@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-1-top_ten.py : Top Ten
+Output first 10 hot posts
 """
 
 from requests import get
@@ -9,13 +9,8 @@ from requests import get
 
 def top_ten(subreddit):
     """
-    Queries the Reddit API and prints the titles of the first 10 hot posts for a given subreddit.
-
-    Parameters:
-        subreddit (str): The name of the subreddit
-
-    Returns:
-        None
+    function that queries the Reddit API and prints first 10
+    hot posts
     """
 
     if subreddit is None or not isinstance(subreddit, str):
@@ -25,11 +20,11 @@ def top_ten(subreddit):
     params = {"limit": 10}
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
 
-    res = get(url, headers=user_agent, params=params)
-    response = res.json()
+    response = get(url, headers=user_agent, params=params)
+    results = response.json()
 
     try:
-        my_data = response.get("data").get("children")
+        my_data = results.get("data").get("children")
 
         for i in my_data:
             print(i.get("data").get("title"))
